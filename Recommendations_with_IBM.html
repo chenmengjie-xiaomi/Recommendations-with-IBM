@@ -14541,7 +14541,8 @@ vt shape(714, 714)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the recommendation system, the features in dataset are often very large, so there will be a very large matrix. Adopting SVD can decompose the matrix, reduce the size of the matrix and reduce the consumption of computing resources.</p>
+<p><strong>1. In the recommendation system, the features in dataset are often very large, so there will be a very large matrix. Adopting SVD can decompose the matrix, reduce the size of the matrix and reduce the consumption of computing resources.</strong></p>
+<p><strong>2. The user_item_matrix is created using only two values: 0 and 1(interacted or not with an article ),We use value 0 or 1 for all combinations between users and articles, it means that there is no null value in the matrix.So we can apply SVD to calculate.</strong></p>
 
 </div>
 </div>
@@ -15395,8 +15396,9 @@ http://pandas.pydata.org/pandas-docs/stable/indexing.html#ix-indexer-is-deprecat
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The way I look for user-recommended articles is to look for information about similar users who share a common interest in the article. We classify users, if the current user had read an article, I would recommend it to other users who have not read it. On the contrary, if a similar user has read an article and the current user has not, it will be reverse recommended to the current user.</p>
-<p>One way to improve the model is to use an unsupervised model. It can cluster articles and classify users. Then the user groups and articles on a one-to-many association, forming a network. This can make better use of the model to recommend more articles.</p>
+<p><strong>1.According to the above pictures, we can see that the score of the training dataset is much higher than that of the test dataset and there may be overfitting.In my opinion, if A/B test is adopted, the test dataset is relatively small compared with the training dataset, so the articles recommended by the test dataset are relatively less selective compared with the training dataset, resulting in the unsatisfactory final recommendation effect.</strong></p>
+<p><strong>2.The way I look for user-recommended articles is to look for information about similar users who share a common interest in the article. We classify users, if the current user had read an article, I would recommend it to other users who have not read it. On the contrary, if a similar user has read an article and the current user has not, it will be reverse recommended to the current user.</strong></p>
+<p><strong>3.One way to improve the model is to use an unsupervised model. It can cluster articles and classify users. Then the user groups and articles on a one-to-many association, forming a network. This can make better use of the model to recommend more articles.Finally, we should use the F1 score as the evaluation standard, because we need to balance the accuracy and recall values.</strong></p>
 
 </div>
 </div>
